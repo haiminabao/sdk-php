@@ -6,7 +6,7 @@
  */
 
 use haimianbao\InsuranceSdk;
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../../../autoload.php';
 
 $insurance_sdk = new InsuranceSdk( 'c4ca4238a0b923820dcc509a6f75849b', 'dedc44b3ab0e8e341260c14169792aff', 'testing' );
 
