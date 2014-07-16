@@ -5,13 +5,13 @@
  * Time: 下午3:51
  */
 
-namespace okchexian;
+namespace haimianbao;
 
 /**
  * Class InsuranceFreeSdk
  * @package okchexian
  */
-class InsuranceFreeSdk
+class InsuranceSdk
 {
 
     /**

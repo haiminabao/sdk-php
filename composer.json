@@ -1,6 +1,6 @@
 {
-    "name": "okchexian/insurance-free-sdk",
-    "description": "OK车险 免费险SDK",
+    "name": "haimianbao/insurance-sdk",
+    "description": "OK车险 保险SDK",
     "keywords": ["OK车险", "SDK"],
     "homepage": "http://www.okchexian.com/",
     "type": "project",
@@ -14,7 +14,7 @@
 
     "autoload": {
         "psr-4": {
-            "okchexian\\": ""
+            "haimianbao\\": ""
         }
     }
 }
