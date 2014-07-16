@@ -23,15 +23,21 @@ class InsuranceFreeSdk
      */
     protected $appsecret = '';
 
+    /**
+     * @var string
+     */
     protected $environment = 'testing';
 
+    /**
+     * @var array
+     */
     protected $connections = [
-//        'testing'   => 'http://api.test.baoxiandr.com',
-        'testing' => 'http://127.0.0.1:85',
+        'testing'   => 'http://api.test.baoxiandr.com',
         'production' => 'http://api.baoxiandr.com',
     ];
 
     /**
+     * 初始化
      * @param string $appkey 分配得到
      * @param string $appsecret 分配得到
      */
@@ -85,6 +91,11 @@ class InsuranceFreeSdk
         }
     }
 
+    /**
+     * 发送验证码
+     * @param string $mobile 手机号
+     * @return mixed|null|\Requests_Response
+     */
     public function verify( $mobile ){
         $body = array(
             'mobile' => $mobile,
@@ -103,9 +114,14 @@ class InsuranceFreeSdk
         }
     }
 
+    /**
+     * 保险支持城市
+     * @param string $insurance_code 保险代号
+     * @return mixed|null|\Requests_Response
+     */
     public function region($insurance_code){
         $body = array(
-            'mobile' => $insurance_code,
+            'code' => $insurance_code,
         );
         $response = \Requests::get($this->connections[$this->environment] . '/api/region?' . $this->signature() . '&' . http_build_query($body));
 
@@ -117,6 +133,47 @@ class InsuranceFreeSdk
         return $response;
     }
 
+    /**
+     * 保险介绍页面
+     * @param string $insurance_code 保险代号
+     * @return mixed|null|\Requests_Response
+     */
+    public function info($insurance_code){
+        $body = array(
+            'code' => $insurance_code,
+        );
+        $response = \Requests::get($this->connections[$this->environment] . '/api/insurance/info?' . $this->signature() . '&' . http_build_query($body));
+
+        try {
+            $response = json_decode($response->body, true);
+        } catch (\Exception $e) {
+            return null;
+        }
+        return $response;
+    }
+
+    /**
+     * 保险详情
+     * @param string $insurance_code 保险代号
+     * @return mixed|null|\Requests_Response
+     */
+    public function detail($insurance_code){
+        $body = array(
+            'code' => $insurance_code,
+        );
+        $response = \Requests::get($this->connections[$this->environment] . '/api/insurance/detail?' . $this->signature() . '&' . http_build_query($body));
+
+        try {
+            $response = json_decode($response->body, true);
+        } catch (\Exception $e) {
+            return null;
+        }
+        return $response;
+    }
+
+    /**
+     * @return string 加密状态码
+     */
     protected function signature(){
         $nonce = rand(123456, 654321);
         $timestamp = time();
