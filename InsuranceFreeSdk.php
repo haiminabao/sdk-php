@@ -103,6 +103,20 @@ class InsuranceFreeSdk
         }
     }
 
+    public function region($insurance_code){
+        $body = array(
+            'mobile' => $insurance_code,
+        );
+        $response = \Requests::get($this->connections[$this->environment] . '/api/region?' . $this->signature() . '&' . http_build_query($body));
+
+        try {
+            $response = json_decode($response->body, true);
+        } catch (\Exception $e) {
+            return null;
+        }
+        return $response;
+    }
+
     protected function signature(){
         $nonce = rand(123456, 654321);
         $timestamp = time();
