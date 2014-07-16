@@ -1,0 +1,20 @@
+{
+    "name": "okchexian/insurance-free-sdk",
+    "description": "OK车险 免费险SDK",
+    "keywords": ["OK车险", "SDK"],
+    "homepage": "http://www.okchexian.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+
+    "require": {
+        "php": ">=5.4.0",
+        "rmccue/requests": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "okchexian\\": ""
+        }
+    }
+}
