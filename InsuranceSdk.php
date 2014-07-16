@@ -26,13 +26,13 @@ class InsuranceSdk
     /**
      * @var string
      */
-    protected $environment = 'testing';
+    protected $environment = 'production';
 
     /**
      * @var array
      */
     protected $connections = [
-        'testing'   => 'http://api.test.baoxiandr.com',
+        'testing' => 'http://api.test.baoxiandr.com',
         'production' => 'http://api.baoxiandr.com',
     ];
 
@@ -41,7 +41,7 @@ class InsuranceSdk
      * @param string $appkey 分配得到
      * @param string $appsecret 分配得到
      */
-    public function __construct($appkey, $appsecret, $environment = 'testing')
+    public function __construct($appkey, $appsecret, $environment = 'production')
     {
         $this->appkey = $appkey;
         $this->appsecret = $appsecret;
@@ -96,13 +96,14 @@ class InsuranceSdk
      * @param string $mobile 手机号
      * @return mixed|null|\Requests_Response
      */
-    public function verify( $mobile ){
+    public function verify($mobile)
+    {
         $body = array(
             'mobile' => $mobile,
         );
         $response = \Requests::post($this->connections[$this->environment] . '/api/verify-code?' . $this->signature(), array('Content Type' => 'application/json'), $body);
 
-        if ( $response->status_code == '200') {
+        if ($response->status_code == '200') {
             try {
                 $response = json_decode($response->body, true);
             } catch (\Exception $e) {
@@ -119,7 +120,8 @@ class InsuranceSdk
      * @param string $insurance_code 保险代号
      * @return mixed|null|\Requests_Response
      */
-    public function region($insurance_code){
+    public function region($insurance_code)
+    {
         $body = array(
             'code' => $insurance_code,
         );
@@ -138,7 +140,8 @@ class InsuranceSdk
      * @param string $insurance_code 保险代号
      * @return mixed|null|\Requests_Response
      */
-    public function info($insurance_code){
+    public function info($insurance_code)
+    {
         $body = array(
             'code' => $insurance_code,
         );
@@ -157,7 +160,8 @@ class InsuranceSdk
      * @param string $insurance_code 保险代号
      * @return mixed|null|\Requests_Response
      */
-    public function detail($insurance_code){
+    public function detail($insurance_code)
+    {
         $body = array(
             'code' => $insurance_code,
         );
@@ -174,7 +178,8 @@ class InsuranceSdk
     /**
      * @return string 加密状态码
      */
-    protected function signature(){
+    protected function signature()
+    {
         $nonce = rand(123456, 654321);
         $timestamp = time();
         $array = [
