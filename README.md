@@ -1,9 +1,29 @@
 insurance-sdk
 ==================
 
-#海绵保保险购买接口调用
+
+## 安装
+
+> 终端
+
+```php
+composer require "haimianbao/insurance-sdk":"dev-master"
+```
+> composer.json
+
+```php
+"require": {
+   "haimianbao/insurance-sdk" : "dev-master"
+}
+```
+## 海绵保保险购买接口调用使用
 
 ```
+use haimianbao\InsuranceSdk;
+require __DIR__ . '/vendor/autoload.php';
+
+$insurance_sdk = new InsuranceSdk( $appkey, $appsecret, 'testing' );
+
 //获取保险介绍页面
 var_dump($insurance_sdk->info('B604FA6F'));
 
