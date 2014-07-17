@@ -59,7 +59,7 @@ class InsuranceSdk
      * @param int $dealer_id 您的代理号
      * @return string 保单号
      */
-    public function buy($insurance_code, $customer_name, $customer_mobile, $customer_verify,  $customer_id_num, $customer_province, $customer_city, $dealer_id = 1000)
+    public function buy($insurance_code, $customer_name, $customer_mobile, $customer_verify,  $customer_id_num, $customer_province, $customer_city, $dealer_id)
     {
         $body = array(
             'insurance' => [

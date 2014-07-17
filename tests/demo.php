@@ -24,8 +24,8 @@ var_dump($insurance_sdk->detail('B604FA6F'));
 
 
 //发送手机验证码
-//var_dump($insurance_sdk->verify('15888660186'));
+//var_dump($insurance_sdk->verify('15888661177'));
 
 
 //购买保险
-//var_dump($insurance_sdk->buy('B604FA6F', '海绵保', '15888888888', '4384', '331002195109111234', '北京市', '北京市'));
+//var_dump($insurance_sdk->buy('B604FA6F', '保橙网络', '15888661177', '7595', '331002199109241177', '北京市', '北京市', 1001));
