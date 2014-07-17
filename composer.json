@@ -1,7 +1,7 @@
 {
     "name": "haimianbao/insurance-sdk",
-    "description": "OK车险 保险SDK",
-    "keywords": ["OK车险", "SDK"],
+    "description": "haimianbao insurance SDK",
+    "keywords": ["haimianbao", "SDK", "insurance"],
     "homepage": "http://www.okchexian.com/",
     "type": "project",
     "license": "BSD-3-Clause",
