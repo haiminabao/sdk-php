@@ -32,8 +32,8 @@ class InsuranceSdk
      * @var array
      */
     protected $connections = [
-        'testing' => 'http://api.test.baoxiandr.com',
-        'production' => 'http://api.baoxiandr.com',
+        'testing' => 'http://api.test.haimianbao.com',
+        'production' => 'http://api.haimianbao.com',
     ];
 
     /**
