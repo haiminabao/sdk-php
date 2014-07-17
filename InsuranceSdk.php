@@ -52,13 +52,14 @@ class InsuranceSdk
      * @param string $insurance_code 保险代码
      * @param string $customer_name 客户名称
      * @param string $customer_mobile 客户手机
+     * @param string $customer_verify 手机验证码
      * @param string $customer_id_num 客户身份证
      * @param string $customer_province 客户省份
      * @param string $customer_city 客户城市
      * @param int $dealer_id 您的代理号
      * @return string 保单号
      */
-    public function buy($insurance_code, $customer_name, $customer_mobile, $customer_id_num, $customer_province, $customer_city, $dealer_id = 1000)
+    public function buy($insurance_code, $customer_name, $customer_mobile, $customer_verify,  $customer_id_num, $customer_province, $customer_city, $dealer_id = 1000)
     {
         $body = array(
             'insurance' => [
@@ -70,7 +71,7 @@ class InsuranceSdk
                 'name' => $customer_name,
                 'id' => $customer_id_num,
                 'mobile' => $customer_mobile,
-                'verify' => rand(1234, 4321),
+                'verify' => $customer_verify,
             ],
             'dealer' => [
                 'id' => $dealer_id,
@@ -176,6 +177,7 @@ class InsuranceSdk
     }
 
     /**
+     * 加密协议
      * @return string 加密状态码
      */
     protected function signature()
