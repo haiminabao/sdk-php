@@ -1,4 +1,4 @@
-insurance-free-sdk
+insurance-sdk
 ==================
 
-OK车险免费险购买接口
+OK车险保险购买接口
