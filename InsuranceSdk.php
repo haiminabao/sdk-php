@@ -8,12 +8,20 @@
 namespace haimianbao;
 
 /**
- * Class InsuranceFreeSdk
- * @package okchexian
+ * Class InsuranceSdk
+ * @package haimianbao
  */
 class InsuranceSdk
 {
+    /**
+     * 测试环境
+     */
+    const ENV_TEST = 'testing';
 
+    /**
+     * 正式环境
+     */
+    const ENV_PRO = 'production';
     /**
      * @var string
      */
