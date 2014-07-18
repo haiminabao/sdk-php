@@ -8,8 +8,8 @@
 use haimianbao\InsuranceSdk;
 require __DIR__ . '/../../../autoload.php';
 
-$appkey = 'c4ca4238a0b923820dcc509a6f75849b';
-$appsecret = 'dedc44b3ab0e8e341260c14169792aff';
+$appkey = '';
+$appsecret = '';
 
 //InsuranceSdk::ENV_TEST 测试环境
 //InsuranceSdk::ENV_PRO 正式环境

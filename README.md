@@ -22,7 +22,12 @@ composer require "haimianbao/insurance-sdk":"dev-master"
 use haimianbao\InsuranceSdk;
 require __DIR__ . '/vendor/autoload.php';
 
-$insurance_sdk = new InsuranceSdk( $appkey, $appsecret, 'testing' );
+$appkey = '';       //系统分配得到
+$appsecret = '';    //系统分配得到
+
+//InsuranceSdk::ENV_TEST 测试环境
+//InsuranceSdk::ENV_PRO 正式环境
+$insurance_sdk = new InsuranceSdk( $appkey, $appkey, InsuranceSdk::ENV_TEST );
 
 
 $insurance_code = 'B604FA6F';    //保险险种代号  每种保险对应一个
